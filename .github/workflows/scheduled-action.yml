@@ -1,0 +1,14 @@
+name: Scheduled-Action
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  update-readme:
+    name: Update README
+    runs-on: macos-latest
+    steps:
+      - name: "Add date to README"
+        run: echo "$(date)" >> README.md
